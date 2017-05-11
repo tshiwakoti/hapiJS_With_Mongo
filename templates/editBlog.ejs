@@ -1,0 +1,7 @@
+<h1>Editing <%= blog.title %></h1>
+<form id ="createBlog" method="POST" action="/blogs/<%= blog._id %>">
+  <input type="text" class="form-control" name="title" placeholder="Title" value="<%= blog.title %>">
+  <input type="text" class="form-control" placeholder="Author" name="author" value="<%= blog.author %>">
+  <textarea class="form-control" rows="3"></textarea>
+  <button type="submit" class="btn btn-default">Submit</button>
+</form>
