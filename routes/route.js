@@ -1,5 +1,5 @@
 var books = require('./books');
 var blogs = require('./blogs');
-//var login = require('./login');
+var users = require('./users');
 
-module.exports = [].concat(books, blogs);
+module.exports = [].concat(books, blogs, users);

@@ -14,6 +14,7 @@ module.exports = [
   { method: 'POST', path: '/blogs', handler: create},
   { method: 'GET', path: '/blogs/{id}/edit', handler: editBlog},
   { method: 'POST', path: '/blogs/{id}', handler: update}
+  //{ method: 'GET', path: '/users', handler: index }
 ];
 
 function index(request, reply) {

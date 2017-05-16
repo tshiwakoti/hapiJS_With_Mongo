@@ -1,0 +1,12 @@
+<h1>this is USERS page</h1>
+
+
+<ul>
+	<% for(var i=0; i < users.length; i++) { %>
+	  <li><strong> <%= users[i].name %> </strong></li>
+	  <p> <%= users[i].email %> </p>
+	<% } %>
+</ul>
+
+
+<h4> <%= current_user.email %>  </h4>

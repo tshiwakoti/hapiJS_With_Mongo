@@ -8,16 +8,20 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
+    "bcrypt": "^1.0.2",
     "boom": "^4.2.0",
     "ejs": "^2.5.6",
     "good": "^7.1.0",
     "hapi": "^16.1.0",
+    "hapi-auth-basic": "^4.2.0",
+    "hapi-auth-cookie": "^7.0.0",
     "hoek": "^4.1.1",
     "inert": "^4.2.0",
     "joi": "^10.2.2",
     "mongojs": "^2.4.0",
     "node-uuid": "^1.4.8",
-    "vision": "^4.1.1"
+    "vision": "^4.1.1",
+    "yar": "^8.1.2"
   },
   "devDependencies": {
     "pryjs": "^1.0.3"
