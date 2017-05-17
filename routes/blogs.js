@@ -23,7 +23,7 @@ function index(request, reply) {
     if (err) {
       return reply(Boom.wrap(err, 'Internal MongoDB error'));
     }
-    reply.view('blogs', { blogs: blogs });
+    reply.view('blogs', { blogs: blogs, current_user: request.yar.get('current_user') });
   });
 }
 

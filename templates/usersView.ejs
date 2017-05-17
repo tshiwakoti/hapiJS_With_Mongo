@@ -1,3 +1,5 @@
+<%- include partials/header.ejs %>
+
 <h1>this is USERS page</h1>
 
 
@@ -8,5 +10,11 @@
 	<% } %>
 </ul>
 
-
+<p>
+<% if (current_user){  %>
 <h4> <%= current_user.email %>  </h4>
+<% } %>
+</p>
+
+
+<%- include partials/footer.ejs %>
