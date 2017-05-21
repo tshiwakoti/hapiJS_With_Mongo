@@ -21,7 +21,17 @@
     "mongojs": "^2.4.0",
     "node-uuid": "^1.4.8",
     "vision": "^4.1.1",
-    "yar": "^8.1.2"
+    "yar": "^8.1.2",
+    "bootstrap": "^3.3.7",
+    "browser-sync": "^2.13.0",
+    "font-awesome": "^4.6.3",
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^2.0.10",
+    "gulp-header": "^1.8.7",
+    "gulp-less": "^3.1.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^1.5.4",
+    "jquery": "^1.11.3"
   },
   "devDependencies": {
     "pryjs": "^1.0.3"

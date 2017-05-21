@@ -54,3 +54,15 @@ server.views({
 
 server.route(routes);
 
+server.route({
+  path: "/assets/{path*}",
+  method: "GET",
+  handler: {
+    directory: {
+      path: "./assets",
+      listing: false,
+      index: false
+    }
+  }
+});
+

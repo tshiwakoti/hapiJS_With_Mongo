@@ -11,10 +11,9 @@ module.exports = [
   { method: 'GET', path: '/blogs', handler: index }, //,
   { method: 'GET', path: '/blogs/{id}', handler: show },
   { method: 'GET', path: '/blogs/new', handler: newBlog },
-  { method: 'POST', path: '/blogs', handler: create},
+  { method: 'POST', path: '/blogs/new', handler: create},
   { method: 'GET', path: '/blogs/{id}/edit', handler: editBlog},
   { method: 'POST', path: '/blogs/{id}', handler: update}
-  //{ method: 'GET', path: '/users', handler: index }
 ];
 
 function index(request, reply) {
@@ -28,16 +27,29 @@ function index(request, reply) {
 }
 
 function show(request, reply) {
-  reply('blogs show')
+  mongo.blogs.find({_id: ObjectId(request.params.id)}, function (err, blog) {
+     reply.view('show', { blog: blog[0], current_user: request.yar.get('current_user') })
+  })
 }
 
 function newBlog(request, reply) {
-  reply('new blog')
+  // If user not logged in redirect to log in page. 
+  reply.view('newBlog')
 }
 
 function create(request,reply){
+  // Add blog.author to loggein User
+  // Add created Date.
   console.log(request.payload)
-  mongo.blogs.save(request.payload);
+  var createdDate = new Date();
+  console.log(createdDate);
+  //mongo.blogs.save(request.payload);
+  mongo.blogs.save({
+    title: request.payload.title,
+    blog: request.payload.blog,
+    author: request.yar.get('current_user'),
+    createdDate: createdDate
+  });
   reply.redirect('/blogs')
 }
 
