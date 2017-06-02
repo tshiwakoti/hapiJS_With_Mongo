@@ -49,24 +49,20 @@
         </li>
         <li>
           <a href="/about">About</a>
-        </li>
-        
+        </li>    
           <% if(typeof current_user == 'undefined' || current_user == null) { %>
-          
         <li> 
           <a href="/login">Login</a> 
         </li>
           <% } else { %>
-           
-         
+               
         <li>    
           <div class="dropdown">
             <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
-              <a href="#"> <%= current_user.email %> </a>
-              <span class="caret"></span>
+              <a href="#"> <%=current_user.email%> </a>
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-              <li><a href="/users/<%=current_user._id%>/edit">Profile</a></li>
+              <li><a href="/users/<%=current_user._id%>/view">Profile</a></li>
               <li><a href="/users/logout">Logout</a></</li>
             </ul>
           </div>

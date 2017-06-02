@@ -5,6 +5,7 @@ const uuid      = require('node-uuid');
 const Joi       = require('joi');
 const mongojs   = require('mongojs');
 const mongo     = mongojs('hapi_With_Mongo', ['blogs']);
+// const users     = mongojs('hapi_With_Mongo', ['users']);
 const ObjectId  = mongojs.ObjectId;
 
 module.exports = [
@@ -33,17 +34,18 @@ function show(request, reply) {
 }
 
 function newBlog(request, reply) {
-  // If user not logged in redirect to log in page. 
-  reply.view('newBlog')
+  // If user not logged in redirect to log in page else go to create new blog page. 
+  var current_user = request.yar.get('current_user');
+
+  if (typeof current_user == 'undefined' || current_user == null) {
+    reply.view('login');
+  } else {
+    reply.view('newBlog', { current_user: current_user })
+  }
 }
 
 function create(request,reply){
-  // Add blog.author to loggein User
-  // Add created Date.
-  console.log(request.payload)
   var createdDate = new Date();
-  console.log(createdDate);
-  //mongo.blogs.save(request.payload);
   mongo.blogs.save({
     title: request.payload.title,
     blog: request.payload.blog,

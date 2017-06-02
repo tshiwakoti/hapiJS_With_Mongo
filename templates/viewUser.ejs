@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <div class ="editBlog">
+        <h3>Profle :</h3>
+        <img src="http://lorempixel.com/400/200/people/"</img>
+        <h4>First Name :<%= user.firstName %></h4>
+        <h4>Last Name  :<%= user.lastName %></h4>
+
+        <!-- if(current_User == ) -->
+
+          <% if(current_user !== null){ %>
+            <% if(typeof current_user !== undefined && current_user.email === user.email) { %>
+
+              <form id="editUser" method="update" action="/users/<%=current_user._id%>/edit">
+                <button type="submit" class="btn btn-warning">Edit Profile</button>
+              </form>
+
+              <form id ="destroyUser" method="POST" action="/users/<%= current_user._id %>/delete">
+                <button type="submit" class="btn btn-danger"> Delete Profile</button>
+              </form>
+
+            <% } %>
+          <% } %>
+      </div> 
+      <hr>
+      <div>
+        <h4>Blogs By <%=user.firstName%></h4>
+              <div class="post-preview">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                   <% for(var i=0; i < blogs.length; i++) { %>
+                      <h3 class="post-title"><%= blogs[i].title %></h3>
+                      <p><%= blogs[i].blog%></p>
+                       <p class="post-meta">  Created On <a href=" "><%=blogs[i].createdDate%> </a></p>
+                      <hr>
+                   <% } %>
+                </div>
+              </div>
+      </div>
+    </div>
+  </div>
+</div>
